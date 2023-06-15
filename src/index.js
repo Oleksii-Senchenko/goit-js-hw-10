@@ -1,2 +1,2 @@
-import"./js/create-select"
-import "./js/search-cat"
+// Создать отдельный файл кет епи и написать запрос в функции ✔️
+import './js/cat-api'
