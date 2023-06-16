@@ -1,11 +1,26 @@
 import refs from './refs'
 const API_KEY = 'live_x2glOrtXN65yWxc6hIzm1fLtDFAD9O4CczTDA4QkUvYD1d6rgUneCd4yRde5eNue'
 
+// function load() {
+//     if (!fetchBreeds) {
+
+//         return
+//     }
+// }
+
+
+
+
+refs.errorEl.style.display = 'none'
+// const errMessage = refs.errorEl.display = 'block'
 export function fetchBreeds() {
     return fetch(`https://api.thecatapi.com/v1/breeds?api_key=${API_KEY}`).then((data) => {
         if (!data.ok) {
-            throw new Error('Sorry. Server was died... Have a good day, good luck')
+            refs.loaderEl.style.display = 'none'
+            refs.errorEl.style.display = 'block'
+            throw new Error()
         }
+        refs.loaderEl.style.display = 'none'
         return data.json()
     })
 }
@@ -17,6 +32,7 @@ fetchBreeds().then((data) => {
     }).join('')
     refs.select.insertAdjacentHTML('afterbegin', options)
 }).catch((err) => {
+
     console.log(err.message);
 })
 
@@ -26,25 +42,30 @@ fetchBreeds().then((data) => {
 
 
 export function fetchCatByBreed(breedId) {
+
     return fetch(`https://api.thecatapi.com/v1/images/search?api_key=${API_KEY}&breed_ids=${breedId}`).then((data) => {
         if (!data.ok) {
             throw new Error()
 
         }
+
         return data.json()
+
 
     })
 }
 
 
 
-refs.select.addEventListener('change', (e) => {
+refs.select.addEventListener('change', e => {
+    e.preventDefault()
+    fetchCatByBreed(refs.select.value).then(data => {
+        refs.catInfo.textContent = ''
+        data.map((el) => {
+            console.log(data);
 
-    fetchBreeds(refs.select.value).then((data) => {
-        console.log(data.value);
-
-
-
+            const render = `<img src="${el.url}" alt="" width="450" height="500"></img>`
+            refs.catInfo.insertAdjacentHTML('afterbegin', render)
+        })
     })
-
 })
