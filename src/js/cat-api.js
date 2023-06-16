@@ -17,6 +17,7 @@ export function fetchBreeds() {
     return fetch(`https://api.thecatapi.com/v1/breeds?api_key=${API_KEY}`).then((data) => {
         if (!data.ok) {
             refs.loaderEl.style.display = 'none'
+            refs.select.style.display = 'none'
             refs.errorEl.style.display = 'block'
             throw new Error()
         }
@@ -64,8 +65,11 @@ refs.select.addEventListener('change', e => {
         data.map((el) => {
             console.log(data);
 
-            const render = `<img src="${el.url}" alt="" width="450" height="500"></img>`
+            const render = `<img src="${el.url}" alt="" width="450" height="300"></img>`
+            // const render2 = ` <h1>${el.breeds.name}</h1>`
             refs.catInfo.insertAdjacentHTML('afterbegin', render)
+            refs.bodyel.insertAdjacentHTML('afterbegin', render2)
+           
         })
     })
 })
