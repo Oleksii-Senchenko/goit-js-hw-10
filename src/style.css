@@ -16,11 +16,12 @@ body {
 
     font-weight: 500;
     font-size: 20px;
-    /* border: dashed red; */
-    border: 4mm ridge rgba(211, 220, 50, .6);
-text-align: center;
+    border: 2mm ridge rgba(42, 43, 7, 0.6);
+
 
 }
+
+
 
 
 

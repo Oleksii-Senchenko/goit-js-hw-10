@@ -19,20 +19,19 @@ fetchBreeds().then((data) => {
 
     const options = data.map((el) => {
         refs.loaderEl.hidden = true
-        /////////////////////////////////////////////////////////////SLIMSELECT///////////////////////////////////////////////////////////////////
-
-        new SlimSelect({
-            select: '#single'
-        })
-        /////////////////////////////////////////////////////////////SLIMSELECT///////////////////////////////////////////////////////////////////
         return `<option class="cat__option" id="select" value="${el.id}">${el.name}</option>`
 
     }).join('')
-    refs.select.insertAdjacentHTML('afterbegin', options)
 
+
+    refs.select.insertAdjacentHTML('afterbegin', options)
+    new SlimSelect({
+        select: '#single',
+    });
+
+    
 }).catch((err) => {
     refs.loaderEl.hidden = true
-    // refs.errorEl.hidden = false
     Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!')
 })
 
@@ -90,5 +89,6 @@ function crateMarkap(data) {
         `
     })
 }
+
 
 
