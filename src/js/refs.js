@@ -4,6 +4,6 @@ const refs = {
     loaderEl: document.querySelector('.loader'),
     errorEl: document.querySelector('.error'),
     bodyel: document.querySelector('body'),
-    h1: document.querySelector('h1')
+    catInfo: document.querySelector('.cat__info'),
 }
 export default refs

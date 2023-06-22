@@ -1,0 +1,68 @@
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+.cat__info {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+
+    height: 500px;
+    margin-left: 0;
+
+}
+
+.breed-select {
+
+    font-weight: 500;
+    font-size: 20px;
+    /* border: dashed red; */
+    border: 4mm ridge rgba(211, 220, 50, .6);
+text-align: center;
+
+}
+
+
+
+
+.loader {
+    width: 56px;
+    height: 56px;
+    position: relative;
+    background: #be3d3d;
+    border-radius: 4px;
+    perspective: 500px;
+}
+
+.loader:before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 24px;
+    height: 24px;
+    background: #FF3D00;
+    border-radius: 50%;
+    transform-origin: 100% 100%;
+    animation: flip 2s linear infinite;
+}
+
+@keyframes flip {
+
+    0%,
+    100% {
+        transform: rotateX(0deg) rotateY(0deg)
+    }
+
+    25% {
+        transform: rotateX(0deg) rotateY(-180deg)
+    }
+
+    50% {
+        transform: rotateX(-180deg) rotateY(-180deg)
+    }
+
+    75% {
+        transform: rotateX(-180deg) rotateY(0deg)
+    }
+}
