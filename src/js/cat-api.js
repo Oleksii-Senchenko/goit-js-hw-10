@@ -1,4 +1,4 @@
-// import SlimSelect from 'slim-select'
+import SlimSelect from 'slim-select'
 import Notiflix from 'notiflix';
 import refs from './refs'
 const API_KEY = 'live_x2glOrtXN65yWxc6hIzm1fLtDFAD9O4CczTDA4QkUvYD1d6rgUneCd4yRde5eNue'
@@ -20,6 +20,7 @@ fetchBreeds().then((data) => {
     const options = data.map((el) => {
         refs.loaderEl.hidden = true
         /////////////////////////////////////////////////////////////SLIMSELECT///////////////////////////////////////////////////////////////////
+
         new SlimSelect({
             select: '#single'
         })
