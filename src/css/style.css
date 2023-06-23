@@ -3,10 +3,18 @@ body {
 }
 
 
-.text-wrapper {
+/* .text-wrapper {
+    display: flex;
     max-width: 200px;
-}
+    width: 200px;
+    height: 200px;
+    КАК ВИДИТЕ Я ТУТ УЖЕ ПОПРОБОВАЛ ВСЕ))))
+} */
 
+.description {
+
+    width: 500px;
+}
 
 .loader {
     position: relative;
