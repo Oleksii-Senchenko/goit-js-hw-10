@@ -7,11 +7,11 @@ import refs from './js/refs';
 import SlimSelect from 'slim-select'
 import Notiflix from 'notiflix';
 import '/node_modules/slim-select/dist/slimselect.css';
-
+////////////////////////////////////////////////////////////////////////////
 //ЗДРАВСТВУЙТЕ.Я ВАМ КОМЕНТАРИЯХ ПИСАЛ, НО СКОРЕЕ ВСЕГО ВЫ НЕ УВИДЕЛИ.
 // Я ХОЧУ СВОЙ СЕЛЕКТ УМЕНЬШИТЬ, НО ЦСС НЕ СЛУШАЕТСЯ, ПОМОГИТЕ РАЗОБРАТСЯ, ХОЧУ ЧТОБ СЕЛЕКТ БЫЛ МЕЬШЕ В 20 РАЗ, ТАК ЖЕ С ТЕКСТОМ, ХОЧУ ЧТОБ БЫЛ АККУРАТНЕЕ 
 //НО ИНТЕРЕСТНО ЧТО КЛАС DESCRIPTION ПОДДАЛСЯ СТИЛИЗАЦИИ А САМ КОНТЕЙНЕР ГДЕ НАХОДИТСЯ ЭТОТ КЛАСС НЕ РЕАГИРУЕТ ВООБЩЕ
-
+///////////////////////////////////////////////////////////////////////////
 
 
 fetchBreeds().then((data) => {
@@ -44,6 +44,7 @@ refs.select.addEventListener('change', (e) => {
         refs.catInfo.insertAdjacentHTML('afterbegin', createMarkap(cat))
         refs.loader.hidden = true
     }).catch(() => {
+        refs.loader.hidden = true
         Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!')
     })
 })
